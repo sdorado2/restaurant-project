@@ -21,6 +21,9 @@ const Drinks = (props) => {
     getDrink("Margarita");
   }, []);
 
+  console.log("drink has : ", drink);
+  // console.log("drink has : ", drink[0]);
+
   if (loading) return <div>Loading...</div>;
 
   console.log("drink has : ", drink);
