@@ -2,17 +2,17 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 function Search(props) {
-  const [drink, setDrink] = useState({
+  const [findDrink, setFindDrink] = useState({
     searchTerm: "",
   });
 
-  const handleChange = (event) => {
-    setDrink({ ...drink, [event.target.name]: event.target.value });
+  const searchDrink = (event) => {
+    setFindDrink({ ...findDrink, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.drinkSearch(drink.searchTerm);
+    props.drinkSearch(findDrink.searchTerm);
   };
 
   return (
@@ -23,8 +23,8 @@ function Search(props) {
           type="text"
           name="searchTerm"
           placeholder="Search drinks here"
-          onChange={handleChange}
-          value={drink.searchTerm}
+          onChange={searchDrink}
+          value={findDrink.searchTerm}
         />
         <input className="submit" type="submit" value="Submit" />
       </form>
