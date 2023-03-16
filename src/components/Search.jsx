@@ -12,7 +12,7 @@ function Search(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.drinkSearch(findDrink.searchTerm);
+    props.drinksearch(findDrink.searchTerm);
   };
 
   return (

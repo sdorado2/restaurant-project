@@ -12,8 +12,8 @@ const Drinks = (props) => {
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`
       )
       .then((res) => res.data.drinks);
-    console.log("data has :", response[0]);
-    setDrink(response[0]);
+    console.log("response has :", response);
+    setDrink(response);
     setLoading(false);
   };
 
@@ -21,12 +21,10 @@ const Drinks = (props) => {
     getDrink("Margarita");
   }, []);
 
-  console.log("drink has : ", drink);
-  // console.log("drink has : ", drink[0]);
-
   if (loading) return <div>Loading...</div>;
 
-  console.log("drink has : ", drink);
+  // console.log("drink has : ", drink);
+
   return (
     <div>
       <div>
@@ -34,7 +32,10 @@ const Drinks = (props) => {
       </div>
 
       <div>
-        <h1>{drink.strDrink}</h1>
+        {/* <h1>{drink.strDrink}</h1> */}
+        {drink.map((item) => (
+          <p key={item.idDrink}>{item.strDrink}</p>
+        ))}
       </div>
     </div>
   );
